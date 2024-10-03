@@ -1,0 +1,37 @@
+<svg id="visual" viewBox="0 0 450 115" width="450" height="115" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+    <defs>
+        <!-- <filter id="blur1" x="-10%" y="-10%" width="120%" height="120%">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+            <feGaussianBlur stdDeviation="149" result="effect1_foregroundBlur"></feGaussianBlur>
+        </filter> -->
+        <linearGradient id="lgrad" x1="100%" y1="50%" x2="0%" y2="50%">
+            <stop offset="0" stop-color="#046A38" />
+            <stop offset="1" stop-color="#CBA052" />
+        </linearGradient>
+
+        <mask id="myMask" x="0" y="0" width="100%" height="100%">
+            <rect x="0" y="0" width="100%" height="100%" fill="url(#lgrad)" />
+        </mask>
+        <text x="100" y="120" text-anchor="middle" id="myText" font-size="50">Hello</text>
+
+        <rect width="900" height="450" fill="#046A38"></rect>
+        <g filter="url(#blur1)" id="color">
+            <circle cx="557" cy="36" fill="#CBA052" r="332"></circle>
+            <circle cx="238" cy="361" fill="#046A38" r="332"></circle>
+            <circle cx="421" cy="304" fill="#CBA052" r="332"></circle>
+            <circle cx="329" cy="113" fill="#CBA052" r="332"></circle>
+            <circle cx="161" cy="79" fill="#046A38" r="332"></circle>
+            <circle cx="890" cy="280" fill="#CBA052" r="332"></circle>
+        </g>
+
+    </defs>
+
+    <g mask="url(#myMask)">
+        <use xlink:href="#color" fill="#CBA052" />
+        <!-- <use xlink:href="#myText" transform="translate(0,0)" fill="green" />
+        <use xlink:href="#myText" transform="translate(0,50)" fill="blue" /> -->
+    </g>
+
+</svg>

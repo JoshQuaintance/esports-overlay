@@ -1,64 +1,31 @@
-let scoreA = 0
-let scoreB = 0
-let isFlipped = false
+// Dependencies
+// const http = require('http');
+const express = require('express');
+const cors = require('cors');
+const app = express();
 
-// counter
-//A buttons
-const increaseA = document.getElementById("BTNmapscoreAup")
-const decreaseA = document.getElementById("BTNmapscoreAdown")
-const mapscoreA = document.getElementById("mapscoreA")
+app.use(express.static(`${__dirname}/static/`));
+app.use(cors());
 
-increaseA.onclick = function(){
-    if (scoreA != 5){
-        scoreA++;
-        mapscoreA.textContent=scoreA;
-    } 
-}
+// CONSTANTS
+const PORT = 8080;
 
-decreaseA.onclick = function(){
-    if (scoreA > 0){
-        scoreA--;
-        mapscoreA.textContent=scoreA;
-    }
-}
+app.get('/', (req, res) => {
+    res.sendFile(`${__dirname}/static/index.html`);
+});
 
-//B buttons
-const increaseB = document.getElementById("BTNmapscoreBup")
-const decreaseB = document.getElementById("BTNmapscoreBdown")
-const mapscoreB = document.getElementById("mapscoreB")
+// const server = http.createServer(async (req, res) => {
+//     const content = await fs.readFile(`${__dirname}/static/index.html`);
 
-increaseB.onclick = function(){
-    if (scoreB != 5){
-        scoreB++;
-        mapscoreB.textContent=scoreB;
-    } 
-}
+//     res.writeHead(200, {
+//         'Content-Type': MIMES.html,
+//     });
 
-decreaseB.onclick = function(){
-    if (scoreB > 0){
-        scoreB--;
-        mapscoreB.textContent=scoreB;
-    }
-}
+//     res.end(content);
+// });
 
-//Reset button
-const resetButton = document.getElementById("resetButton")
+// server.listen(PORT, 'localhost', () => {
+//     console.log(`Server is running on http://localhost:${PORT}`);
+// });
 
-resetButton.onclick = function(){
-    location.reload();
-    mapscoreA.textContent=scoreA;
-    mapscoreB.textContent=scoreB;
-}
-
-//Flipping BG Image
-function changeBackground() {
-    let bodyID = document.getElementById("scorebug");
-    if (isFlipped) {
-        bodyID.classList.remove("flipBG");
-        bodyID.classList.add("mainBG");
-    } else {
-        bodyID.classList.remove("mainBG");
-        bodyID.classList.add("flipBG");
-    }
-    isFlipped = !isFlipped; // Toggle the stat
-}
+app.listen(PORT);
