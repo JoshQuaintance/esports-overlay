@@ -1,0 +1,185 @@
+/* BOARD 1 Images */
+/*
+.mainBG{
+    background-image: url("../img/VALORANT_Score_Overlay.png");
+    background-size: 1920px 1080px;
+    background-repeat: no-repeat;
+}
+
+.flipBG{
+    background-image: url("../img/VALORANT_Score_Overlay_FLIPPED.png");
+    background-size: 1920px 1080px;
+    background-repeat: no-repeat;
+}
+*/
+
+.mainBG{
+    background-image: url("../img/VALORANT_Score_Overlay2.png");
+    background-size: 1920px 1080px;
+    background-repeat: no-repeat;
+}
+
+.flipBG{
+    background-image: url("../img/VALORANT_Score_Overlay2_FLIPPED.png");
+    background-size: 1920px 1080px;
+    background-repeat: no-repeat;
+}
+
+/* DIVS */
+
+/* SCOREBOX DIVS */
+/* BOARD 1 */
+/*
+div.scoreboxA {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    top: 133px;
+    left: 873px;
+    text-align: center;
+    font-size: 38px;
+    font-family: "Bahnschrift", sans-serif;
+    font-weight: bold;
+}
+div.scoreboxB {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    top: 133px;
+    left: 1004px;
+    text-align: center;
+    font-size: 38px;
+    font-family: "Bahnschrift", sans-serif;
+    font-weight: bold;
+}
+/*
+/* BOARD 2 */
+div.scoreboxA {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    top: 16px;
+    left: 286px;
+    text-align: center;
+    font-size: 72px;
+    font-family: "Bahnschrift", sans-serif;
+    font-weight: bold;
+}
+div.scoreboxB {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    top: 16px;
+    left: 1588px;
+    text-align: center;
+    font-size: 72px;
+    font-family: "Bahnschrift", sans-serif;
+    font-weight: bold;
+}
+
+
+
+div.incScoreA {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    top: 600px;
+    left: 2100px;
+    text-align: center;
+    font-size: 36px;
+    font-family: "Bahnschrift", sans-serif;
+    font-weight: bold;
+}
+div.incScoreB {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    top: 600px;
+    left: 2300px;
+    text-align: center;
+    font-size: 36px;
+    font-family: "Bahnschrift", sans-serif;
+    font-weight: bold;
+}
+/* BUTTONS */
+.buttonsUp{
+    padding: 0;
+    background: rgb(86, 255, 137);
+    cursor: zoom-in;
+    
+    height: 60px;
+    width: 80px;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Bahnschrift";
+    font-weight: bold;
+    color:rgb(0, 0, 0);
+}
+.buttonsUp:hover{
+    padding: 0;
+    background: rgb(173, 255, 198);
+    cursor: zoom-in;
+}
+
+.buttonsDown{
+    padding: 0;
+    background: rgb(255, 95, 95);
+    cursor: zoom-out;
+    
+    height: 60px;
+    width: 80px;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Bahnschrift";
+    font-weight: bold;
+    color:rgb(0, 0, 0);
+}
+.buttonsDown:hover{
+    padding: 0;
+    background: rgb(255, 157, 157);
+    cursor: zoom-out;
+}
+
+.otherbuttons{
+    padding: 5px;
+    border-color: black;
+    background: rgb(255, 224, 120);
+    cursor:help;
+    
+    position: fixed;
+    top: 650px;
+    left: 2210px;
+
+    text-align: center;
+    height: 60px;
+    width: 60px;
+    font-size: 18px;
+    font-family: "Bahnschrift";
+    font-weight: bold;
+    color:rgb(0, 0, 0);
+}
+.otherbuttons:hover{
+    padding: 0;
+    background: rgb(255, 238, 181);
+    cursor: grab;
+    text-align: center;
+}
+
+.flipButtons{
+    padding: 5px;
+    border-color: black;
+    background: rgb(0, 204, 255);
+    cursor:ew-resize;
+    
+    position: fixed;
+    top: 720px;
+    left: 2210px;
+
+    text-align: center;
+    height: 60px;
+    width: 60px;
+    font-size: 18px;
+    font-family: "Bahnschrift";
+    font-weight: bold;
+    color:rgb(0, 0, 0);
+}

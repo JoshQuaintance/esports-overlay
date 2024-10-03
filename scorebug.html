@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="refresh" content="1200">
+        <meta name="viewport">
+        <title>VALORANT Scorebug</title>
+        <link rel="stylesheet" href="./styles/scorebugstyle.css">
+    </head>
+    <body id="scorebug" class="mainBG">
+
+        <!-- Team A -->
+        <div class="scoreboxA">
+            <label id="mapscoreA">0</label>
+        </div>
+
+        <!-- Team B -->
+        <div class="scoreboxB">
+            <label id="mapscoreB">0</label>
+        </div>
+
+        <!-- Reset Button -->
+        <div class="resetScore">
+            <button id="resetButton" class="otherbuttons">Reset</button>
+        </div>
+
+        <!-- FLIP BOARD BUTTONS -->
+        <div>
+            <button onclick="changeBackground()" class="flipButtons">Flip</button>
+        </div>
+
+        <!-- Score Buttons -->
+        <div class="incScoreA">
+            <button id="BTNmapscoreAup" class="buttonsUp">Team A +1</button><br><br>
+            <button id="BTNmapscoreAdown" class="buttonsDown">Team A -1</button>
+        </div>
+
+        <div class="incScoreB">
+            <button id="BTNmapscoreBup" class="buttonsUp">Team B +1</button><br><br>
+            <button id="BTNmapscoreBdown" class="buttonsDown">Team B -1</button>
+        </div>
+
+        <script src="index.js"></script>
+    </body>
+</html>

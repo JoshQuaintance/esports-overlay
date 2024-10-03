@@ -1,0 +1,32 @@
+This project finally works!
+
+> htmVAL Scorebug 1.1 <
+Instructions...
+1) Create a browser source in OBS.
+2) Enable the "Local File" box in the Browser Source's properties.
+3) Click "Browse", navigate to the "scorebug.html"
+4) Set the width and height of the Browser Source to 2400x1080
+5) Make sure the "Custom CSS" section has this inside...
+
+body { background-color: rgba(0, 0, 0, 0); margin: 0px auto; overflow: hidden; }
+
+6) Press "Okay"
+7) Align the top left of the source to the top left corner of the OBS preview
+8) Select the new Browser Source and click the "Interact" button on the menu above the "Sources" panel.
+	OR
+   Right click on the new Browser Source and select "Interact" in the context menu.
+9) A new window should show up that displays the browser source.
+	> On right side of the interact window, there are Buttons Labeled with their functions.
+	> New with the 1.2 update, there is now a FLIP button located under the Reset button.
+		>Press the Flip button to switch between the main Scorebug and the Inverted bases.
+		> THE SCORES DO NOT FLIP, you will need to adjust that manually using the Team A/B +1 or -1 buttons.
+
+TO EDIT THE OVERLAY IMAGE:
+There should be a .PSD in the /img/ folder that you can access and edit/remove team names, add logos, change colors, edit the design, etc.
+Make sure to export the edited overlay as .png and save over the existing "VALORANT_Score_Overlay.png" file.
+***Do keep in mind that if you do edit the size or position of the "Map Score" boxes, you may need to adjust the position of the <div>s within the styles file.
+
+If you have any questions, suggestions, or issues- feel free to add me/shoot me a dm!
+My Discord username is csleaf
+
+Thank you!
