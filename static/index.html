@@ -8,32 +8,84 @@
         <title>VALORANT Scorebug</title>
         <link rel="stylesheet" href="./styles/styles.css">
 
+        <script>
+            let _wsu = 'right';
+            let _opp = _wsu == 'right' ? 'left' : 'right';
+            localStorage.setItem('oppSide', _opp);
+            localStorage.setItem('wsuSide', _wsu);
+            localStorage.setItem(
+                'opp',
+                JSON.stringify({
+                    score: 1,
+                    colors: {
+                        main: '#AA6ABC',
+                        secondary: '#C0A0A1',
+                    },
+                })
+            );
+            localStorage.setItem(
+                'wsu',
+                JSON.stringify({
+                    score: 2,
+                    colors: {
+                        main: '#046A38',
+                        secondary: '#CBA052',
+                    },
+                })
+            );
+        </script>
+        <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+
+
         <script defer src="./script.js"></script>
+        <!-- <script type="text/javascript" src="https://livejs.com/live.js"></script> -->
 
     </head>
 
-    <body id="scorebug" class="mainBG">
+    <body class="mainBG">
 
-        <!-- Team A -->
-        <div id="scoreboxA" class="scoreboxA">
-            <img src="./img/left.svg" />
-            <label id="mapscoreA">0</label>
+        <div id="scores-to-three">
+            <!-- Team A -->
+            <div id="left-scorebox" class="scoreboxA">
+                <object class="backbox" id="left-box" data="./img/backbox.svg" type="image/svg+xml"></object>
+
+                <img class="school-logo" src="./img/WSU.png">
+
+                <span class="score-fill-container">
+                    <object class="score" data="./img/score_blank.svg" type="image/svg+xml"></object>
+                    <object class="score" data="./img/score_blank.svg" type="image/svg+xml"></object>
+                    <object class="score" data="./img/score_blank.svg" type="image/svg+xml"></object>
+                </span>
+                <!-- <label id="mapscoreA">0</label> -->
+            </div>
+
+            <!-- Team B -->
+            <div id="right-scorebox" class="scoreboxB">
+                <object class="backbox" id="right-box" data="./img/backbox.svg"></object>
+
+                <img id="right-logo" class="school-logo" src="./img/WSU.png">
+
+                <span class="score-fill-container">
+
+                    <object class="score" data="./img/score_blank.svg" type="image/svg+xml"></object>
+                    <object class="score" data="./img/score_blank.svg" type="image/svg+xml"></object>
+                    <object class="score" data="./img/score_blank.svg" type="image/svg+xml"></object>
+                </span>
+            </div>
         </div>
 
-        <!-- Team B -->
-        <div id="scoreboxB" class="scoreboxB">
-            <label id="mapscoreB">0</label>
-        </div>
+        <button onclick="switchSides()">SWITCH</button>
+
 
         <!-- Reset Button -->
-        <div class="resetScore">
+        <!-- <div class="resetScore">
             <button id="resetButton" class="otherbuttons">Reset</button>
-        </div>
+        </div> -->
 
         <!-- FLIP BOARD BUTTONS -->
-        <div>
+        <!-- <div>
             <button onclick="changeBackground()" class="flipButtons">Flip</button>
-        </div>
+        </div> -->
 
     </body>
 
