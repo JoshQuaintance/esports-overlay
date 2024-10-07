@@ -13,33 +13,46 @@ const socket = io();
  */
 let sides = [localStorage.getItem('wsuSide'), localStorage.getItem('oppSide')];
 
+/**
+ * Initializes the left box
+ */
 let leftBox = document.querySelector('#left-box');
 leftBox.addEventListener('load', function () {
     let doc = this.getSVGDocument();
-    BACKBOXES.left = doc;
+    BACKBOXES.left = doc; // saves the backboxes so that we can change the colors later
     setGradient(doc, sides[0] == 'left' ? 'wsu' : 'opp');
 });
 
 let rightBox = document.querySelector('#right-box');
 rightBox.addEventListener('load', function () {
     let doc = this.getSVGDocument();
-    BACKBOXES.right = doc;
+    BACKBOXES.right = doc; // saves the backboxes for later
 
     setGradient(doc, sides[0] == 'right' ? 'wsu' : 'opp');
 });
 
+/**
+ * Changes the gradient color of the backboxes depending on which team on which side
+ * @param {SVGElement} svg The svg element
+ * @param {string} who Who's colors to change the gradient
+ */
 function setGradient(svg, who) {
+    // get the defs for color gradient stops
     let defs = svg.querySelectorAll('defs linearGradient stop');
 
     let gradientStart = defs[0];
     let gradientEnd = defs[1];
 
+    // decide which team we're changing it to
     let colors = JSON.parse(localStorage.getItem(`${who}`)).colors;
 
     gradientEnd.setAttribute('stop-color', colors.main);
     gradientStart.setAttribute('stop-color', colors.secondary);
 }
 
+/**
+ * Updates the score to the last saved state (does not change anything)
+ */
 function updateScores() {
     let scores = [wsu, opp];
 
@@ -52,39 +65,60 @@ function updateScores() {
             box.style.backgroundColor = i < score ? 'black' : 'transparent';
         }
     }
-    // for (let i = 1; i <= scores[_].score; i++) {
-    //     let scorebox = document.querySelector(`#${sides[_]}-scorebox .score:nth-child(${i})`);
-    //     scorebox.style.backgroundColor = 'black';
-    // }
 }
 
+/**
+ * Updates the state of the logos
+ */
 function updateLogos() {
     const logos = document.querySelectorAll('.logo-holder');
 
+    // figure out which school we're doing
+    // since the first one is always wsu, check if it's on
+    // the left side, because the left side is the first one
+    // to be changed
     let who = sides[0] == 'left' ? 'wsu' : 'opp';
 
+    // go through both sides logo holder
     for (const logo of logos) {
+        // get the actual img element
         let img = logo.querySelector('img');
+
+        // if it's wsu also give it the wsu-logo id (so that it can be a little bigger)
         if (who == 'wsu') img.id = 'wsu-logo';
         else img.id = '';
 
+        // then change the image
         img.src = images[who];
 
+        // and make sure the next one is the opposite team
         who = who == 'wsu' ? 'opp' : 'wsu';
     }
 }
 
+/**
+ * Switches the sides of the overlays and saves the state to localstorage
+ */
 function switchSides() {
+    // Switch the sides (wsu is at index 0)
     sides = sides.map((val) => (val == 'right' ? 'left' : 'right'));
 
+    // save the side state
     localStorage.setItem('wsuSide', sides[0]);
     localStorage.setItem('oppSide', sides[1]);
 
+    // then go through all the backboxes (2 of them)
+    // then we just use the setGradient to change the colors
     for (const key of Object.keys(BACKBOXES)) {
         let who = sides[0] == key ? 'wsu' : 'opp';
         setGradient(BACKBOXES[key], who);
     }
 
+    // since both the updateLogos and updateScores
+    // relies on the localstorage, and we just changed
+    // the sides on there, we can simply run them both here
+    // and they will automatically know which teams belong to
+    // which side
     updateLogos();
     updateScores();
 }
@@ -99,6 +133,7 @@ document.addEventListener(
     false
 );
 
+// Socket to listen on the controls being clicked
 socket.on('switchSides', () => {
     switchSides();
 });
