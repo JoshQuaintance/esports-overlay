@@ -62,7 +62,7 @@ function updateScores() {
 
         for (let i = 0; i < scoreEls.length; i++) {
             let box = scoreEls.item(i);
-            box.style.backgroundColor = i < score ? 'black' : 'transparent';
+            box.style.backgroundColor = i < score ? 'red' : 'transparent';
         }
     }
 }
@@ -123,6 +123,22 @@ function switchSides() {
     updateScores();
 }
 
+function addScore(who) {
+    let data = who == 'wsu' ? wsu : opp;
+
+    if (data.score < 2) data.score++;
+    localStorage.setItem(who, JSON.stringify(data));
+    updateScores();
+}
+
+function subtractScore(who) {
+    let data = who == 'wsu' ? wsu : opp;
+
+    if (data.score > 0) data.score--;
+    localStorage.setItem(who, JSON.stringify(data));
+    updateScores();
+}
+
 document.addEventListener(
     'DOMContentLoaded',
     function () {
@@ -134,6 +150,16 @@ document.addEventListener(
 );
 
 // Socket to listen on the controls being clicked
-socket.on('switchSides', () => {
+socket.on('switchSides', (msg) => {
+    console.log('switching side', `'msg: ${msg}`);
+
     switchSides();
+});
+
+socket.on('addScore', (msg) => {
+    addScore(msg);
+});
+
+socket.on('subtractScore', (msg) => {
+    subtractScore(msg);
 });

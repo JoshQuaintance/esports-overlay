@@ -9,8 +9,10 @@
         <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
         <script>
             const socket = io();
-            function emitEvent(name) {
-                socket.emit(name, '');
+            function emitEvent(name, arg = '') {
+                console.log(name, arg);
+
+                socket.emit(name, arg);
             }
         </script>
 
@@ -18,6 +20,11 @@
 
     <body>
         <button onclick="emitEvent('switchSides')">SWITCH</button>
+
+        <button onclick="emitEvent('addScore', 'wsu')">+ WSU</button>
+        <button onclick="emitEvent('subtractScore', 'wsu')">- WSU</button>
+        <button onclick="emitEvent('addScore', 'opp')">+ Opponent</button>
+        <button onclick="emitEvent('subtractScore', 'opp')">- Opponent</button>
     </body>
 
 </html>

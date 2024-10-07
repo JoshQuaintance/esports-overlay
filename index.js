@@ -32,9 +32,13 @@ io.on('connection', (socket) => {
     // most likely the controls, it will rebound it to
     // everyone else, then on the other side they will
     // also listen to the event and hopefully update the overlay
-    socket.on('switchSides', () => {
-        io.emit('switchSides', '');
+    socket.onAny((name, ...args) => {
+        io.emit(name, args[0]);
     });
+    // socket.on('switchSides', () => {
+
+    // io.emit('switchSides', '');
+    // });
 
     socket.on('disconnect', () => {});
 });
