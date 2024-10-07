@@ -9,30 +9,30 @@
         <link rel="stylesheet" href="./styles/styles.css">
 
         <script>
-            let _wsu = 'right';
-            let _opp = _wsu == 'right' ? 'left' : 'right';
-            localStorage.setItem('oppSide', _opp);
-            localStorage.setItem('wsuSide', _wsu);
-            localStorage.setItem(
-                'opp',
-                JSON.stringify({
-                    score: 1,
-                    colors: {
-                        main: '#AA6ABC',
-                        secondary: '#C0A0A1',
-                    },
-                })
-            );
-            localStorage.setItem(
-                'wsu',
-                JSON.stringify({
-                    score: 2,
-                    colors: {
-                        main: '#046A38',
-                        secondary: '#CBA052',
-                    },
-                })
-            );
+            // let _wsu = 'left';
+            // let _opp = _wsu == 'right' ? 'left' : 'right';
+            // localStorage.setItem('oppSide', _opp);
+            // localStorage.setItem('wsuSide', _wsu);
+            // localStorage.setItem(
+            //     'opp',
+            //     JSON.stringify({
+            //         score: 1,
+            //         colors: {
+            //             main: '#00274C',
+            //             secondary: '#FFCB05',
+            //         },
+            //     })
+            // );
+            // localStorage.setItem(
+            //     'wsu',
+            //     JSON.stringify({
+            //         score: 2,
+            //         colors: {
+            //             main: '#046A38',
+            //             secondary: '#CBA052',
+            //         },
+            //     })
+            // );
         </script>
         <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
 
@@ -49,13 +49,16 @@
             <div id="left-scorebox" class="scoreboxA">
                 <object class="backbox" id="left-box" data="./img/backbox.svg" type="image/svg+xml"></object>
 
-                <img class="school-logo" src="./img/WSU.png">
-
                 <span class="score-fill-container">
                     <object class="score" data="./img/score_blank.svg" type="image/svg+xml"></object>
                     <object class="score" data="./img/score_blank.svg" type="image/svg+xml"></object>
-                    <object class="score" data="./img/score_blank.svg" type="image/svg+xml"></object>
+                    <!-- <object class="score" data="./img/score_blank.svg" type="image/svg+xml"></object> -->
                 </span>
+
+                <span id="left-logo" class="logo-holder">
+                    <img class="school-logo" id="wsu-logo" src="./img/WSU.png">
+                </span>
+
                 <!-- <label id="mapscoreA">0</label> -->
             </div>
 
@@ -63,13 +66,14 @@
             <div id="right-scorebox" class="scoreboxB">
                 <object class="backbox" id="right-box" data="./img/backbox.svg"></object>
 
-                <img id="right-logo" class="school-logo" src="./img/WSU.png">
+                <span id="right-logo" class="logo-holder">
+                    <img class="school-logo" src="./img/opp.webp">
+                </span>
 
                 <span class="score-fill-container">
-
                     <object class="score" data="./img/score_blank.svg" type="image/svg+xml"></object>
                     <object class="score" data="./img/score_blank.svg" type="image/svg+xml"></object>
-                    <object class="score" data="./img/score_blank.svg" type="image/svg+xml"></object>
+                    <!-- <object class="score" data="./img/score_blank.svg" type="image/svg+xml"></object> -->
                 </span>
             </div>
         </div>
