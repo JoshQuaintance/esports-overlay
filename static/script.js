@@ -31,6 +31,35 @@ rightBox.addEventListener('load', function () {
     setGradient(doc, sides[0] == 'right' ? 'wsu' : 'opp');
 });
 
+function initStorage() {
+    let _wsu = 'left';
+    let _opp = _wsu == 'right' ? 'left' : 'right';
+    localStorage.setItem('oppSide', _opp);
+    localStorage.setItem('wsuSide', _wsu);
+    localStorage.setItem(
+        'opp',
+        JSON.stringify({
+            score: 1,
+            colors: {
+                main: '#00274C',
+                secondary: '#FFCB05',
+            },
+            name: 'Michigan Pink',
+        })
+    );
+    localStorage.setItem(
+        'wsu',
+        JSON.stringify({
+            score: 2,
+            colors: {
+                main: '#046A38',
+                secondary: '#CBA052',
+            },
+            name: 'WSU Raiders',
+        })
+    );
+}
+
 /**
  * Changes the gradient color of the backboxes depending on which team on which side
  * @param {SVGElement} svg The svg element
