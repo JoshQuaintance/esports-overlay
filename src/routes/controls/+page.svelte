@@ -15,26 +15,26 @@
 
     const pos = $state({ left: teamA, right: teamB });
 
-    const socket = io();
-    socket.on('connect', () => {
-        console.log(`Socket Connected, ID: ${socket.id}`);
-    });
+    // const socket = io();
+    // socket.on('connect', () => {
+    //     console.log(`Socket Connected, ID: ${socket.id}`);
+    // });
 
-    socket.onAny((name, message) => {
-        console.log('client', message);
-    });
+    // socket.onAny((name, message) => {
+    //     console.log('client', message);
+    // });
 
     /**
      * Effects that will trigger a socket emit when either of the teams
      * have any data being updated
      */
-    $effect(() => {
-        socket.emit('teama-update', JSON.stringify(teamA));
-    });
+    // $effect(() => {
+    //     socket.emit('teama-update', JSON.stringify(teamA));
+    // });
 
-    $effect(() => {
-        socket.emit('teamb-update', JSON.stringify(teamB));
-    });
+    // $effect(() => {
+    //     socket.emit('teamb-update', JSON.stringify(teamB));
+    // });
 </script>
 
 <svelte:head>
